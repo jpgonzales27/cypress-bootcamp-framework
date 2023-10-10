@@ -5,10 +5,12 @@ import { LoginElements } from "./login.elements";
 export class LoginMethods {
   static insertUsername(username) {
     LoginElements.textboxes.username.type(username);
+    //LoginElements.textboxes.username.invoke("val", username);
   }
 
   static insertPassword(password) {
     LoginElements.textboxes.password.type(password);
+    //LoginElements.textboxes.password.invoke("val", password);
   }
 
   static clickOnLoginButton() {
