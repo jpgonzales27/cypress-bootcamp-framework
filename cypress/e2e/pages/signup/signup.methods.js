@@ -1,12 +1,15 @@
+import { CommonPageMethods } from "../common-page/common-page.methods";
+import { SignupElements } from "./signup.elements";
+
 export class SignupMethods {
   static insertUsername(username) {
-    SignupElements.textboxes.username.type(username);
-    //SignupElements.textboxes.username.invoke("val", username);
+    //SignupElements.textboxes.username.type(username);
+    SignupElements.textboxes.username.invoke("val", username);
   }
 
   static insertPassword(password) {
-    SignupElements.textboxes.password.type(password);
-    //SignupElements.textboxes.password.invoke("val", password);
+    //SignupElements.textboxes.password.type(password);
+    SignupElements.textboxes.password.invoke("val", password);
   }
 
   static clickOnSignupButton() {
@@ -17,5 +20,13 @@ export class SignupMethods {
     this.insertUsername(username);
     this.insertPassword(password);
     this.clickOnSignupButton();
+  }
+
+  static verifySignupSuccesfulMessageIsDisplayed() {
+    CommonPageMethods.verifyAlert("Sign up successful.");
+  }
+
+  static verifyThatThisUserAlreadyExistMessageIsDisplayed() {
+    CommonPageMethods.verifyAlert("This user already exist.");
   }
 }
