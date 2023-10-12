@@ -1,4 +1,7 @@
+import { CommonPageMethods } from "../common-page/common-page.methods";
 import { CartElements } from "./cart.elements";
+import { LoginMethods } from "../login/login.methods";
+import { Logger } from "../../util/logger";
 
 export class CartMethods {
   static clickOnDeleteLink(productName) {
@@ -23,5 +26,22 @@ export class CartMethods {
       link.click();
       cy.wait("@deleteItem");
     });
+  }
+
+  static emptyCart(username, password) {
+    Logger.subStep("Navigate to Demoblaze application");
+    CommonPageMethods.navigateToDemoBlaze();
+    Logger.subStep("Log out");
+    CommonPageMethods.logout();
+    Logger.subStep("Click on Home option");
+    CommonPageMethods.clickOnHomeOption();
+    Logger.subStep("Click on Login option");
+    CommonPageMethods.clickOnLoginOption();
+    Logger.subStep(`Login with this credentials ${username}/${password}`);
+    LoginMethods.login(username, password);
+    Logger.subStep("Click on Cart option");
+    CommonPageMethods.clickOnCartOption();
+    Logger.subStep("Delete products from cart");
+    this.deleteProducts();
   }
 }

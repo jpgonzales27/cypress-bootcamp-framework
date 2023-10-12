@@ -15,4 +15,12 @@ export class HomeMethods {
   static clickOnProductLink(productName) {
     HomeElements.product(productName).click();
   }
+
+  static verifyProductDisplayed(productName) {
+    HomeElements.product(productName).should("be.visible");
+  }
+
+  static verifyHomePageIsShown() {
+    cy.url().should("include", "index.html");
+  }
 }
