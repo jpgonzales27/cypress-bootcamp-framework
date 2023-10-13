@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results",
+    "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results && rimraf ./runner-results",
     "ejecutar-pruebas": "cypress run --env allure=true,allureLogCyCommands=false",
     "ejecutar-prueba": "cypress run --env allure=true,allureLogCyCommands=false --spec \"cypress/e2e/tests/autenticacion.cy.js\"",
     "generar-reporte": "allure generate allure-results -o allure-report --clean",
