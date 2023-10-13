@@ -1,6 +1,6 @@
 export class CommomPageData {
   static get url() {
-    return "https://www.demoblaze.com/cart.html";
+    return "https://www.demoblaze.com/index.html";
   }
 
   static get testSuites() {
